@@ -79,10 +79,17 @@ public class Auction
      */
     public Lot getLot(int lotNumber)
     {
+        //Q.8
+        //for (Lot aLot : listOfLots){
+        //  if (aLot.getNumber()==lotNumber){
+        //      return aLot;
+        //  }    
+        //}    
+        //return null; 
         if((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
-            // The number seems to be reasonable.
+            // The number is reasonable.
             Lot selectedLot = listOfLots.get(lotNumber - 1);
-            // Include a confidence check to be sure we have the
+            // Include a confidence check to be sure we have the rigth lot
             // right lot.
             if(selectedLot.getNumber() != lotNumber) {
                 System.out.println("Internal error: Lot number " +
@@ -121,9 +128,12 @@ public class Auction
         for (Lot aLot : listOfLots){
             Bid highest = aLot.getHighestBid();
             if(highest==null){
+                //if  (aLot.getHighestBid()==null) <--(optional, anonymous object)
             unsold.add(aLot);
             }
         }
         return unsold; 
     }
+    
+    //Q.5 internal error
 }
